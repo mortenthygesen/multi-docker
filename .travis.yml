@@ -18,3 +18,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Push images to docker hub
+  - docker push karpin/multi-client
+  - docker push karpin/multi-nginx
+  - docker push karpin/multi-server
+  - docker push karpin/multi-worker
