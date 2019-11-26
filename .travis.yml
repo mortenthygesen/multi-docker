@@ -22,3 +22,15 @@ after_success:
   - docker push karpin/multi-nginx
   - docker push karpin/multi-server
   - docker push karpin/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucker_name: elasticbeanstalk-us-east-2-556463984563
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
